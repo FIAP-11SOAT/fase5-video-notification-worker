@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Frames disponíveis para download</title>
+</head>
+<body style="
+    margin: 0;
+    padding: 0;
+    background-color: #f2f6fc;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="padding: 30px 0;">
+    <tr>
+        <td align="center">
+            <!-- Container -->
+            <table width="600" cellpadding="0" cellspacing="0" style="
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                padding: 30px;
+            ">
+
+                <!-- Logo -->
+                <tr>
+                    <td align="center" style="padding-bottom: 20px;">
+                        <img
+                                src="https://cdn.discordapp.com/attachments/1085748304345833522/1463673302064300082/frameify.png?ex=6980873c&is=697f35bc&hm=4892afea405425fb242dd29c9ceda8e0f8d1e47ba6a6113550d2a622eb923376&"
+                                alt="Frameify"
+                                width="160"
+                                style="display: block;"
+                        />
+                    </td>
+                </tr>
+
+                <!-- Conteúdo -->
+                <tr>
+                    <td>
+                        <h2 style="
+                            color: #1f3c88;
+                            margin-top: 0;
+                        ">
+                            Olá, <span th:text="${customerName}">Cliente</span>! 🎉
+                        </h2>
+
+                        <p style="font-size: 15px; line-height: 1.6;">
+                            Boas notícias! Os frames do vídeo
+                            <strong style="color: #1f3c88;" th:text="${videoKey}">1234</strong>
+                            já estão disponíveis para download.
+                        </p>
+
+                        <p style="font-size: 15px; line-height: 1.6;">
+                            Você já pode acessar os arquivos e utilizá-los como preferir.
+                        </p>
+
+                        <!-- Destaque positivo -->
+                        <div style="
+                            margin-top: 25px;
+                            padding: 15px;
+                            background-color: #e8f5e9;
+                            border-left: 4px solid #2e7d32;
+                            border-radius: 6px;
+                            font-size: 14px;
+                            color: #2e7d32;
+                        ">
+                            ✅ Processamento finalizado com sucesso!
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Rodapé -->
+                <tr>
+                    <td align="center" style="
+                        padding-top: 30px;
+                        font-size: 13px;
+                        color: #777;
+                    ">
+                        Obrigado pela preferência 💙
+                        <br/>
+                        <strong>Frameify</strong>
+                    </td>
+                </tr>
+
+            </table>
+            <!-- /Container -->
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

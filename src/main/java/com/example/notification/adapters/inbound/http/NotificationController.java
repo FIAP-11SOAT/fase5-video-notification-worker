@@ -4,6 +4,7 @@ import com.example.notification.adapters.converter.http.NotificationControllerCo
 import com.example.notification.adapters.dto.http.NotificationBodyDto;
 import com.example.notification.core.model.NotificationRequest;
 import com.example.notification.core.ports.NotificationServicePort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,11 @@ public class NotificationController {
         this.service = service;
     }
 
-    @PostMapping("/")
+    @PostMapping(
+            value = "/",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<String> sendNotification(@RequestBody NotificationBodyDto body){
         try {
             NotificationRequest request = converter.convertToNotifyRequest(body);

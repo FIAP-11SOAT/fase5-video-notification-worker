@@ -11,20 +11,10 @@ public class NotificationControllerConverter {
 
     public NotificationRequest convertToNotifyRequest(NotificationBodyDto body){
         return new NotificationRequest(
-                body.meta().eventId(),
-                new NotificationRequest.User(
-                        body.payload().customerName(),
-                        body.payload().customerEmail()
-                ),
-                body.meta().eventName(),
-                new NotificationRequest.Payload(
-                        body.payload().orderId(),
-                        body.payload().items(),
-                        body.payload().amount(),
-                        body.payload().qrCode()
-                ),
-                LocalDateTime.now(),
-                null
+                body.payload().videoKey(),
+                body.payload().userId(),
+                body.payload().status(),
+                LocalDateTime.now()
         );
     }
 }
