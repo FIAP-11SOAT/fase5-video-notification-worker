@@ -8,11 +8,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public record MessageQueueDto(
-        com.example.notification.adapters.dto.http.NotificationBodyDto.PayloadDto payload
+        PayloadDto payload
 ) {
 
     public record PayloadDto(
             String videoKey,
+            String name,
             String userId,
             StatusEnum status
     ) {

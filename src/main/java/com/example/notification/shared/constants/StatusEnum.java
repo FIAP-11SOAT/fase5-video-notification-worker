@@ -28,13 +28,4 @@ public enum StatusEnum {
         return templateName;
     }
 
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-        for (StatusEnum type : values()) {
-            if (type.templateName.equalsIgnoreCase(value)) {
-                return type;
-            }
-        }
-        throw ExceptionUtils.badRequest(ErrorType.INVALID_EVENT_TYPE, null);
-    }
 }

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile({"prod", "dev"})
+@Profile({"prod", "dev", "test"})
 public class SqsQueueMessageListenerAdapter implements QueueMessageListenerPort {
 
     private final NotificationServicePort service;

@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 public record NotificationRequest(
         String videoKey,
+        String name,
         String userId,
         StatusEnum status,
         LocalDateTime dateReceived

@@ -11,5 +11,4 @@ echo "Aguardando alguns segundos para serviços inicializarem..."
 sleep 15
 
 echo "=== Iniciando aplicação Spring Boot (profile dev) ==="
-./mvnw spring-boot:run -Dspring-boot.run.profiles=dev &
-APP_PID=$!
+SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run

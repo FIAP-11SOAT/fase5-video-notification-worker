@@ -47,7 +47,7 @@
 
                         <p style="font-size: 15px; line-height: 1.6;">
                             Boas notícias! Os frames do vídeo
-                            <strong style="color: #1f3c88;" th:text="${videoKey}">1234</strong>
+                            <strong style="color: #1f3c88;" th:text="${videoName}">nome_do_vídeo</strong>
                             já estão disponíveis para download.
                         </p>
 
@@ -65,7 +65,8 @@
                             font-size: 14px;
                             color: #2e7d32;
                         ">
-                            ✅ Processamento finalizado com sucesso!
+                            <p>✅ Processamento finalizado com sucesso!</p>
+                            <p>🔑 video key: <strong style="color: #1f3c88;" th:text="${videoKey}">1234</strong></p>
                         </div>
                     </td>
                 </tr>

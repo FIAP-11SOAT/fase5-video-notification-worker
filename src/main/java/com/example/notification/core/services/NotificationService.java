@@ -34,8 +34,8 @@ public class NotificationService implements NotificationServicePort {
         try {
             String templateName = request.status().getTemplateName();
             String subject = request.status().getSubject();
-            // UserResponse user = userService.getUserById(request.userId());
-            UserResponse user = new UserResponse("Fulano de tal", "orlo5@ethereal.email", "11111111111");
+            UserResponse user = userService.getUserById(request.userId());
+            // UserResponse user = new UserResponse("Fulano de tal", "orlo5@ethereal.email", "11111111111");
             String htmlBody = templateRendererService.render(
                     templateName,
                     getVariables(user, request)
@@ -52,6 +52,7 @@ public class NotificationService implements NotificationServicePort {
     private Map<String, Object> getVariables(UserResponse user, NotificationRequest request) {
         return Map.of(
                 "customerName", user.name(),
+                "videoName", request.name(),
                 "videoKey", request.videoKey()
         );
     }
