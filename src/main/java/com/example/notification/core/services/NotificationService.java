@@ -35,7 +35,7 @@ public class NotificationService implements NotificationServicePort {
             String templateName = request.status().getTemplateName();
             String subject = request.status().getSubject();
             UserResponse user = userService.getUserById(request.userId());
-            // UserResponse user = new UserResponse("Fulano de tal", "orlo5@ethereal.email", "11111111111");
+            // UserResponse user = new UserResponse("fulano", "orlo5@ethereal.email");
             String htmlBody = templateRendererService.render(
                     templateName,
                     getVariables(user, request)
