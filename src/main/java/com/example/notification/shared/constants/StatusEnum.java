@@ -1,8 +1,5 @@
 package com.example.notification.shared.constants;
 
-import com.example.notification.shared.exceptions.ErrorType;
-import com.example.notification.shared.exceptions.ExceptionUtils;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
