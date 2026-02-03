@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vídeo recebido com sucesso</title>
+</head>
+<body style="
+    margin: 0;
+    padding: 0;
+    background-color: #f2f6fc;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="padding: 30px 0;">
+    <tr>
+        <td align="center">
+            <!-- Container -->
+            <table width="600" cellpadding="0" cellspacing="0" style="
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                padding: 30px;
+            ">
+
+                <!-- Logo -->
+                <tr>
+                    <td align="center" style="padding-bottom: 20px;">
+                        <img
+                                src="https://cdn.discordapp.com/attachments/1085748304345833522/1463673302064300082/frameify.png?ex=6980873c&is=697f35bc&hm=4892afea405425fb242dd29c9ceda8e0f8d1e47ba6a6113550d2a622eb923376&"
+                                alt="Frameify"
+                                width="160"
+                                style="display: block;"
+                        />
+                    </td>
+                </tr>
+
+                <!-- Conteúdo -->
+                <tr>
+                    <td>
+                        <h2 style="
+                            color: #1f3c88;
+                            margin-top: 0;
+                        ">
+                            Olá, <span th:text="${customerName}">Cliente</span>! 👋
+                        </h2>
+
+                        <p style="font-size: 15px; line-height: 1.6;">
+                            O vídeo
+                            <strong style="color: #1f3c88;" th:text="${videoName}">nome_do_vídeo</strong>
+                            foi carregado com sucesso no sistema.
+                        </p>
+
+                        <p style="font-size: 15px; line-height: 1.6;">
+                            Em breve, os <strong>frames estarão disponíveis para download</strong>.
+                            Assim que finalizar, você poderá acessá-los normalmente.
+                        </p>
+
+                        <!-- Destaque -->
+                        <div style="
+                            margin-top: 25px;
+                            padding: 15px;
+                            background-color: #eef3ff;
+                            border-left: 4px solid #1f3c88;
+                            border-radius: 6px;
+                            font-size: 14px;
+                        ">
+                            💡 Dica: guarde o código do vídeo para acompanhar o processamento.
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Rodapé -->
+                <tr>
+                    <td align="center" style="
+                        padding-top: 30px;
+                        font-size: 13px;
+                        color: #777;
+                    ">
+                        Obrigado pela preferência 💙
+                        <br/>
+                        <strong>Frameify</strong>
+                    </td>
+                </tr>
+
+            </table>
+            <!-- /Container -->
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
