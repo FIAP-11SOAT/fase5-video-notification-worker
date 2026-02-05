@@ -22,7 +22,7 @@ public class SqsQueueMessageListenerAdapter implements QueueMessageListenerPort 
     }
 
     @Override
-    @SqsListener("${app.sqs.notification-queue-name}")
+    @SqsListener("${app.sqs.notification-queue-videoName}")
     public void onMessage(MessageQueueDto message) {
         NotificationRequest request = converter.convertToNotifyRequest(message);
         service.notify(request);
