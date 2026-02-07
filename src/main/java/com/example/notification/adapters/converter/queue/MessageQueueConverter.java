@@ -12,7 +12,7 @@ public class MessageQueueConverter {
     public NotificationRequest convertToNotifyRequest(MessageQueueDto message){
         return new NotificationRequest(
                 message.payload().videoKey(),
-                message.payload().name(),
+                message.payload().videoName(),
                 message.payload().userId(),
                 message.payload().status(),
                 LocalDateTime.now()
