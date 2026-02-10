@@ -29,19 +29,13 @@ public class SqsQueueMessageListenerAdapter implements QueueMessageListenerPort 
     @Override
     @SqsListener(value = "fase5-video-notification-queue")
     public void onMessage(String message) {
-        log.info("Mensagem recebida da fila SQS");
-        log.info("Payload: {}", message);
-
         try {
             MessageQueueDto notification = objectMapper.readValue(message, MessageQueueDto.class);
-            System.out.println("Notification: " + notification.toString());
-
             NotificationRequest request = converter.convertToNotifyRequest(notification);
             service.notify(request);
 
         } catch (Exception e) {
             log.error("Erro ao processar mensagem da fila: {}", e.getMessage(), e);
-            // A mensagem será retornada para a fila após visibility timeout
             throw new RuntimeException("Erro ao processar mensagem", e);
         }
     }

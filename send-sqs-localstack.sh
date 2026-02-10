@@ -4,7 +4,7 @@ set -e
 # Configurações
 ENDPOINT_URL="http://localhost:4566"
 REGION="us-east-1"
-QUEUE_NAME="fase5-video-processing-infra-notification-queue"
+QUEUE_NAME="fase5-video-notification-queue"
 MESSAGE_FILE="src/test/resources/message.json"
 
 echo "=== 1) Verificando AWS CLI ==="

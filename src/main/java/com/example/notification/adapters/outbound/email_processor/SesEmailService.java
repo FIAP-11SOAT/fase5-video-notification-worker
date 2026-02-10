@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.ses.SesClient;
 import software.amazon.awssdk.services.ses.model.*;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Service
 @Profile({"prod"})
@@ -58,7 +60,11 @@ public class SesEmailService implements EmailServicePort {
             log.info("[SesEmailService]: Email sent to {}", emailDto.to());
 
         } catch (SesException e) {
-            log.error("[SesEmailService]: Error sending email {}", e.awsErrorDetails().errorMessage(), e);
+            log.error(
+                    "Error sendind email",
+                    kv("class", "SesEmailService"),
+                    e
+            );
             throw ExceptionUtils.internalError(ErrorType.ERROR_SENDING_EMAIL, e);
         }
     }
