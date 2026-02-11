@@ -56,8 +56,7 @@ class NotificationServiceTest {
 
         UserResponse user = new UserResponse(
                 "Amanda",
-                "amanda@email.com",
-                "11111111111"
+                "amanda@email.com"
         );
 
         String renderedHtml = "<html>Email</html>";

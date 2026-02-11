@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-@Profile({"dev", "prod"})
+@Profile({"dev"})
 public class SmtpEmailService implements EmailServicePort {
 
     private final JavaMailSender mailSender;
