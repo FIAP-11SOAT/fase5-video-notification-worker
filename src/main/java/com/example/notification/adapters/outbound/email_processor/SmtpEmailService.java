@@ -1,19 +1,21 @@
 package com.example.notification.adapters.outbound.email_processor;
 
-import com.example.notification.adapters.outbound.dto.EmailDto;
-import com.example.notification.shared.constants.ApplicationConstants;
-import com.example.notification.shared.exceptions.ErrorType;
-import com.example.notification.shared.exceptions.ExceptionUtils;
-import jakarta.mail.internet.MimeMessage;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.example.notification.adapters.outbound.dto.EmailDto;
+import com.example.notification.shared.constants.ApplicationConstants;
+import com.example.notification.shared.exceptions.ErrorType;
+import com.example.notification.shared.exceptions.ExceptionUtils;
+
+import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Service
-@Profile({"dev"})
+@Profile({ "dev" })
 public class SmtpEmailService implements EmailServicePort {
 
     private final JavaMailSender mailSender;
