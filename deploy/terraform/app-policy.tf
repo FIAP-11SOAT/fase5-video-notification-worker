@@ -79,9 +79,9 @@ data "aws_iam_policy_document" "app_policy" {
   }
 
   statement {
-    effect = "Allow",
-    action = ["ses:SendEmail", "ses:SendRawEmail"],
-    resources = "*"
+    effect = "Allow"
+    actions = ["ses:SendEmail", "ses:SendRawEmail"]
+    resources = ["*"]
   }
 }
 

@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "fase5-terraform-state"
-    key    = "fase5-video-processing-api/terraform.tfstate"
+    key    = "fase5-video-notification-worker/terraform.tfstate"
     region = "us-east-1"
   }
 

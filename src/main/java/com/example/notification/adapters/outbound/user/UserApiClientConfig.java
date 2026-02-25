@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class UserApiClientConfig {
 
     @Bean
-    public RequestInterceptor userClientInterceptor(@Value("${auth.service.x-ms-token}") String token) {
+    public RequestInterceptor userClientInterceptor(@Value("${fase5.notification.worker.auth.service.token}") String token) {
         return template -> template.header("X-MS-Token", token);
     }
 }
