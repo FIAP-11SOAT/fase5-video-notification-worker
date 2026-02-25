@@ -24,22 +24,6 @@ data "aws_iam_policy_document" "app_policy" {
     ]
   }
 
-  # # CloudWatch Logs permissions for Fluent Bit
-  # statement {
-  #   effect = "Allow"
-  #   actions = [
-  #     "logs:CreateLogStream",
-  #     "logs:CreateLogGroup",
-  #     "logs:PutLogEvents",
-  #     "logs:DescribeLogStreams",
-  #     "logs:DescribeLogGroups"
-  #   ]
-  #   resources = [
-  #     "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/eks/${data.aws_eks_cluster.cluster.name}/${var.project_name}",
-  #     "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/eks/${data.aws_eks_cluster.cluster.name}/${var.project_name}:*"
-  #   ]
-  # }
-
   statement {
     effect = "Allow"
     actions = [
@@ -55,6 +39,9 @@ data "aws_iam_policy_document" "app_policy" {
     effect = "Allow"
     actions = [
       "sqs:SendMessage",
+      "sqs:ReceiveMessage",
+      "sqs:DeleteMessage",
+      "sqs:ChangeMessageVisibility",
       "sqs:GetQueueUrl",
       "sqs:GetQueueAttributes"
     ]
@@ -91,8 +78,4 @@ resource "aws_iam_role_policy" "app_policy" {
   name   = "${var.project_name}-policy"
   role   = aws_iam_role.app_role.id
   policy = data.aws_iam_policy_document.app_policy.json
-}
-
-resource "aws_ses_email_identity" "frameify" {
-  email = "no-reply@frameify.dev"  # ou domínio
 }

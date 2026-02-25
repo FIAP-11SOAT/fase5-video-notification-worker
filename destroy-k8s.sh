@@ -17,9 +17,9 @@ NC='\033[0m' # No Color
 
 # Ordem de remoção dos manifests (dependentes primeiro, depois dependências)
 MANIFESTS=(
-    "namespace.yaml"
-    "service-account.yaml"
     "deployment.yaml"
+    "service-account.yaml"
+    "namespace.yaml"
 )
 
 echo -e "${YELLOW}========================================${NC}"
