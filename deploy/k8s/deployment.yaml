@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fase5-video-notification-worker
+  namespace: fase5-video-notification-worker
+  labels:
+    app: fase5-video-notification-worker
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: fase5-video-notification-worker
+  template:
+    metadata:
+      labels:
+        app: fase5-video-notification-worker
+    spec:
+      serviceAccountName: fase5-video-notification-worker-service-account
+      containers:
+      - name: fase5-video-notification-worker
+        image: 814147156565.dkr.ecr.us-east-1.amazonaws.com/fase5-video-notification-worker-ecr:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

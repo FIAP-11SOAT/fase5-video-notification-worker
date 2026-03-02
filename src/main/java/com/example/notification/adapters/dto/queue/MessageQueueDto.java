@@ -8,7 +8,7 @@ public record MessageQueueDto(
 
     public record PayloadDto(
             String videoKey,
-            String name,
+            String videoName,
             String userId,
             StatusEnum status
     ) {
