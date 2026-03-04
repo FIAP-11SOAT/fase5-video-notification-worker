@@ -9,5 +9,5 @@ public class ApplicationConstants {
         throw ExceptionUtils.internalError(ErrorType.UTILITY_CLASS_ERROR, null);
     }
 
-    public static final String NO_REPLY_EMAIL = "notificacoes@frameify.dev";
+    public static final String NO_REPLY_EMAIL = "Frameify Notifications <notifications@frameify.dev>";
 }

@@ -7,6 +7,8 @@ import org.thymeleaf.context.Context;
 
 import java.util.Map;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Service
 public class TemplateRendererService {
@@ -23,7 +25,12 @@ public class TemplateRendererService {
             context.setVariables(variables);
             return templateEngine.process(templateName, context);
         } catch (Exception e){
-            log.error("[TemplateRendererService]: Error rendering template", e);
+            log.error(
+                    "Error rendering template",
+                    kv("class", "TemplateRendererService"),
+                    kv("template_name", templateName),
+                    e
+            );
             throw e;
         }
     }

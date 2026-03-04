@@ -1,17 +1,20 @@
 package com.example.notification.shared.constants;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public enum StatusEnum {
 
-    UPLOADED("uploaded", "Frameify: Seu vídeo foi carregado \uD83E\uDD29"),
-    PROCESSED("processed", "Frameify: Seus frames estão disponíveis ! \uD83D\uDE80"),
-    ERROR_PROCESSING("error-processing", "Frameify: Houve um problema ao processar seu vídeo \uD83E\uDD26\uD83C\uDFFD");
+    UPLOADED("uploaded", "Frameify: Seu vídeo foi carregado 🤩"),
+    PROCESSED("processed", "Frameify: Seus frames estão disponíveis ! 🚀"),
+    ERROR_PROCESSING("error-processing", "Frameify: Houve um problema ao processar seu vídeo 🤦🏽‍♂️");
 
     private final String templateName;
+
     @Getter
     private final String subject;
 
@@ -25,4 +28,12 @@ public enum StatusEnum {
         return templateName;
     }
 
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+        return Arrays.stream(values())
+                .filter(v -> v.templateName.equalsIgnoreCase(value))
+                .findFirst()
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid StatusEnum: " + value));
+    }
 }

@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
         name = "userClient",
-        url = "${auth.service.url}"
+        url = "${auth.service.url}",
+        configuration = UserApiClientConfig.class
 )
 public interface UserApiClient {
+
     @GetMapping("/auth/user-by-id/{userId}")
     UserResponse getUserById(@PathVariable String userId);
 }

@@ -9,6 +9,8 @@ import com.example.notification.core.ports.NotificationServicePort;
 import com.example.notification.core.services.templates.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 
 import java.util.Map;
 
@@ -35,7 +37,6 @@ public class NotificationService implements NotificationServicePort {
             String templateName = request.status().getTemplateName();
             String subject = request.status().getSubject();
             UserResponse user = userService.getUserById(request.userId());
-            // UserResponse user = new UserResponse("Fulano de tal", "orlo5@ethereal.email", "11111111111");
             String htmlBody = templateRendererService.render(
                     templateName,
                     getVariables(user, request)
@@ -44,14 +45,24 @@ public class NotificationService implements NotificationServicePort {
             EmailDto emailDto = new EmailDto(to, subject, htmlBody);
             emailService.sendEmail(emailDto);
         } catch (Exception e) {
-            log.error("[NotificationService]: Error handling request", e);
+            log.error(
+                    "Error handling notification",
+                    kv("class", "NotificationService"),
+                    kv("videoKey", request.videoKey()),
+                    kv("userId", request.userId()),
+                    kv("status", request.status()),
+                    e
+            );
             throw e;
         }
     }
 
     private Map<String, Object> getVariables(UserResponse user, NotificationRequest request) {
+        if(request == null){
+            throw new IllegalArgumentException("Request null");
+        }
         return Map.of(
-                "customerName", user.name(),
+                "customerName", user.username(),
                 "videoName", request.name(),
                 "videoKey", request.videoKey()
         );
